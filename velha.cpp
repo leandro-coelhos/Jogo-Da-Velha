@@ -12,3 +12,7 @@ bool validaFormatoTabuleiro(std::vector<std::vector<int>> tabuleiro) {
      }
      return true;
 }
+
+int verificaVencedor(std::vector<std::vector<int>> tabuleiro) {
+     return 2;
+}
