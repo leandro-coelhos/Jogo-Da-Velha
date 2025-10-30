@@ -14,5 +14,19 @@ bool validaFormatoTabuleiro(std::vector<std::vector<int>> tabuleiro) {
 }
 
 int verificaVencedor(std::vector<std::vector<int>> tabuleiro) {
-     return 2;
+     for(int i = 0; i < 3; i++){
+          //Horizontal
+          if (tabuleiro[i][0] == 1 && tabuleiro[i][1] == 1 && tabuleiro[i][2] == 1) {
+               return 1;
+          }
+          //Vertical
+          if (tabuleiro[0][i] == 1 && tabuleiro[1][i] == 1 && tabuleiro[2][i] == 1) {
+               return 1;
+          }
+     }
+     //Diagonal
+     if ((tabuleiro[0][0] == 1 && tabuleiro[1][1] == 1 && tabuleiro[2][2] == 1)||(tabuleiro[0][2] == 1 && tabuleiro[1][1] == 1 && tabuleiro[2][0] == 1)) {
+          return 1;
+     }
+     return 0;
 }
