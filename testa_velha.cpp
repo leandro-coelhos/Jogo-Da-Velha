@@ -83,3 +83,12 @@ TEST_CASE("Empate."){
      };
      REQUIRE(verificaVencedor(tabuleiro) == 0);
 }
+
+TEST_CASE("Indefinido"){
+    std::vector<std::vector<int>> tabuleiro = {
+        {1, 0, 2},
+        {0, 1, 0},
+        {0, 0, 0},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == -1);
+}
