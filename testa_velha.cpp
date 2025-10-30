@@ -47,3 +47,30 @@ TEST_CASE("X vence na coluna."){
      };
      REQUIRE(verificaVencedor(tabuleiro) == 1);
 }
+
+TEST_CASE("O vence na linha."){
+    std::vector<std::vector<int>> tabuleiro = {
+        {2, 2, 2},
+        {0, 1, 0},
+        {1, 0, 2},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == 2);
+}
+
+TEST_CASE("O vence na coluna."){
+    std::vector<std::vector<int>> tabuleiro = {
+        {1, 2, 0},
+        {0, 2, 1},
+        {1, 2, 0},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == 2);
+}
+
+TEST_CASE("O vence na diagonal."){
+    std::vector<std::vector<int>> tabuleiro = {
+        {2, 1, 0},
+        {1, 2, 1},
+        {0, 0, 2},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == 2);
+}
