@@ -31,5 +31,5 @@ int verificaVencedor(std::vector<std::vector<int>> tabuleiro) {
      if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
           return tabuleiro[0][2];
      }
-     return -1;
+     return 0;
 }
