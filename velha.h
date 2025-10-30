@@ -1,6 +1,7 @@
 #ifndef VELHA_H
 #define VELHA_H
+#include <vector>
 
-bool validaFormatoTabuleiro(int tabuleiro[3][3]);
+bool validaFormatoTabuleiro(std::vector<std::vector<int>> tabuleiro);
 
 #endif
