@@ -74,3 +74,12 @@ TEST_CASE("O vence na diagonal."){
      };
      REQUIRE(verificaVencedor(tabuleiro) == 2);
 }
+
+TEST_CASE("Empate."){
+    std::vector<std::vector<int>> tabuleiro = {
+        {1, 2, 1},
+        {2, 1, 2},
+        {2, 1, 2},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == 0);
+}
