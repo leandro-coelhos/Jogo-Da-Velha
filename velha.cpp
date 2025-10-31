@@ -1,5 +1,7 @@
 #include "velha.h"
+#include <iostream>
 #include <vector>
+#include <cstdlib> 
 
 bool validaFormatoTabuleiro(std::vector<std::vector<int>> tabuleiro) {
      if(tabuleiro.size() != 3) {
@@ -14,6 +16,7 @@ bool validaFormatoTabuleiro(std::vector<std::vector<int>> tabuleiro) {
 }
 
 int verificaVencedor(std::vector<std::vector<int>> tabuleiro) {
+     int x = 0;
      std::vector<int> n;
      for(int i = 0; i < 3; i++){
           if(tabuleiro[i][0] != 0) {
@@ -27,28 +30,35 @@ int verificaVencedor(std::vector<std::vector<int>> tabuleiro) {
           }
           //Horizontal
           if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2] && tabuleiro[i][0]) {
-               return tabuleiro[i][0];
+               x = tabuleiro[i][0];
           }
           //Vertical
           if (tabuleiro[0][i] == tabuleiro[1][i] && tabuleiro[1][i] == tabuleiro[2][i] && tabuleiro[0][i]) {
-               return tabuleiro[0][i];
+               x = tabuleiro[0][i];
           }
      }
      //Diagonal
      if (tabuleiro[0][0] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][2]) {
-          return tabuleiro[0][0];
+          x = tabuleiro[0][0];
      }
      if (tabuleiro[0][2] == tabuleiro[1][1] && tabuleiro[1][1] == tabuleiro[2][0]) {
-          return tabuleiro[0][2];
+          x = tabuleiro[0][2];
      }
      int c = 0;
+     int c1 = 0;
+     int c2 = 0;
      for(int i: n){
           if(i != 0) {
                c++;
           }
+          if(i == 1) c1++;
+          if(i == 2) c2++;
      }
      if(c >= 5) {
-          return 0; // Empate
+          if(c1 > 5 || c2 > 5 || abs(c1 - c2) >= 2) {
+               return -2; // Impossível
+          }
+          return x; //  Vitorioso ou empate
      }
      else {
           return -1; // Jogo em andamento
