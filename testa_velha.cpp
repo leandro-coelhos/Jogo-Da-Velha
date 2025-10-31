@@ -92,3 +92,12 @@ TEST_CASE("Indefinido"){
      };
      REQUIRE(verificaVencedor(tabuleiro) == -1);
 }
+
+TEST_CASE("Impossível"){
+    std::vector<std::vector<int>> tabuleiro = {
+        {1, 1, 1},
+        {1, 1, 1},
+        {1, 1, 1},
+     };
+     REQUIRE(verificaVencedor(tabuleiro) == -2);
+}
